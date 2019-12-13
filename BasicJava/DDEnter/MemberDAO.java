@@ -42,15 +42,16 @@ public class MemberDAO {
 	public void memUpdate(MemberDTO mDto) {
 		try {
 			conn = DBManager.getConnection();
-			String sql = "UPDATE tbl_enter " + "SET aname = ?, " + "   major = ?, " + "   groupyn = ?, " + "   groupnm = ?, " + "   sal = ?, " + "WHERE ano = ?";
+			String sql = "UPDATE tbl_enter " + "SET aname = ?, " + "   major = ?, " + "   groupyn = ?, " + "   groupnm = ?, " + "   sal = ?" + "WHERE ano = ?";
 			pstmt = conn.prepareStatement(sql);	
 			
+			pstmt.setString(6, mDto.getAno());
 			pstmt.setString(1, mDto.getAname()); //(? 물음표 첫번째)
 			pstmt.setString(2, mDto.getMajor());
 			pstmt.setString(3, mDto.getGroupyn());
 			pstmt.setString(4, mDto.getGroupnm());
 			pstmt.setInt(5, mDto.getSal());
-			pstmt.setString(6, mDto.getAno());
+			
 			
 			int result = pstmt.executeUpdate();
 			if(result>0) {
