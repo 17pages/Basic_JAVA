@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class DDBoardMain {
 	
 
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		BoardDAO bDao = new BoardDAO();
@@ -87,15 +88,25 @@ public class DDBoardMain {
 				
 			}else if (code ==5) {
 				System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-				System.out.println("▶▶ 게시판을 검색합니다.");
-				System.out.print("▶▶ 글 제목 >> ");
+				System.out.println("▶▶ 검색할 키워드를 입력하세요.");
+				System.out.print("▶▶ 검색 >> ");
 				sc.nextLine();
-				String title = sc.nextLine();
-				bDao.BoardSerach(title);
+				String keyword = sc.nextLine();
+				bDao.BoardSerach(keyword);
 				
 			}else if(code ==6) {
+				System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+				System.out.println("▶▶ 게시판을 정렬합니다.");
+				
+				bDao.BoardSort();
 				
 			}else if(code ==7) {
+				System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+				System.out.println("▶▶ 보고싶은 게시글 번호를 입력하세요.");
+				System.out.print("▶▶ 게시글번호 >> ");
+				int bno = sc.nextInt();
+				
+				bDao.BoardView(bno);
 				
 			}else if(code ==8) {
 				System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");

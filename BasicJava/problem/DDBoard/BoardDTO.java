@@ -8,16 +8,18 @@ public class BoardDTO {
 	private String title;
 	private String content;
 	private String writer;
+	private int viewcnt;
 	private Date regdate;
 	
 	public BoardDTO() {}
-	
-	public BoardDTO(int bno, String title, String content, String writer, Date regdate) {
+
+	public BoardDTO(int bno, String title, String content, String writer, int viewcnt, Date regdate) {
 		super();
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+		this.viewcnt = viewcnt;
 		this.regdate = regdate;
 	}
 
@@ -26,6 +28,15 @@ public class BoardDTO {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
+	}
+
+	public BoardDTO(int bno, String title, String content, String writer, Date regdate) {
+		super();
+		this.bno = bno;
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+		this.regdate = regdate;
 	}
 
 	public BoardDTO(int bno, String title, String content, String writer) {
@@ -68,6 +79,14 @@ public class BoardDTO {
 		this.writer = writer;
 	}
 
+	public int getViewcnt() {
+		return viewcnt;
+	}
+
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
+	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -78,11 +97,13 @@ public class BoardDTO {
 
 	@Override
 	public String toString() {
-		return "▣▣ "+bno+"\t"+title+"\t"+content+"\t"+writer+"\t"	+regdate;
+		return bno + "\t" + 
+			   title + "\t" + 
+			   content + "\t" + 
+			   writer + "\t" + 
+			   viewcnt + "\t" + 
+			   regdate;
 	}
-
-	
-	
-
-
 }
+	
+	
